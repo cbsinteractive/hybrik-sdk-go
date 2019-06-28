@@ -117,6 +117,7 @@ type PresetTarget struct {
 	Container   struct {
 		Kind string `json:"kind"`
 	} `json:"container"`
+	NumPasses     int           `json:"nr_of_passes,omitempty"`
 	Video         VideoTarget   `json:"video,omitempty"`
 	Audio         []AudioTarget `json:"audio,omitempty"`
 	ExistingFiles string        `json:"existing_files,omitempty"`
