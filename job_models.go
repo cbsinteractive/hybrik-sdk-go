@@ -149,13 +149,13 @@ type TranscodeSourcePipelineOpts struct {
 type TranscodeSourcePipelineScaler struct {
 	// The type of scaling to be applied.
 	// Valid values: 'default' or 'zscale'
-	Kind string `json="kind,omitempty"`
+	Kind string `json:"kind,omitempty"`
 
 	// The configuration string to be used with the specified scaling function.
-	Config string `json="config_string,omitempty"`
+	Config string `json:"config_string,omitempty"`
 
 	// Always use the specified scaling function.
-	ApplyAlways bool `json="apply_always,omitempty"`
+	ApplyAlways bool `json:"apply_always,omitempty"`
 }
 
 // TranscodePreset .
