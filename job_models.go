@@ -56,7 +56,7 @@ type LocationTargetPayload struct {
 // TranscodePayload holds configurations for a transcode task
 type TranscodePayload struct {
 	LocationTargetPayload
-	SourcePipeline TranscodeSourcePipeline `json:"source_pipeline,omitempty"`
+	SourcePipeline *TranscodeSourcePipeline `json:"source_pipeline,omitempty"`
 }
 
 // TranscodeSourcePipeline allows the modification of the source prior to beginning the transcode
