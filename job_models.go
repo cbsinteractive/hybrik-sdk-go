@@ -62,14 +62,14 @@ type TranscodePayload struct {
 // TranscodeSourcePipeline allows the modification of the source prior to beginning the transcode
 type TranscodeSourcePipeline struct {
 	// Segmented rendering parameters.
-	SegmentedRendering SegmentedRendering `json:"segmented_rendering,omitempty"`
+	SegmentedRendering *SegmentedRendering `json:"segmented_rendering,omitempty"`
 
 	// The FFmpeg source string to be applied to the source file. Use {source_url} within this string
 	// to insert the source file name(s).
 	FfmpegSourceArgs string `json:"ffmpeg_source_args,omitempty"`
 
 	// SourcePipeline options
-	Options TranscodeSourcePipelineOpts `json:"options,omitempty"`
+	Options *TranscodeSourcePipelineOpts `json:"options,omitempty"`
 
 	// Use accelerated Apple ProRes decoder.
 	EnableAcceleratedProres bool `json:"accelerated_prores,omitempty"`
@@ -84,7 +84,7 @@ type TranscodeSourcePipeline struct {
 	ChromaDitherAlgorithm string `json:"chroma_dither_algorithm,omitempty"`
 
 	// The type of function to be used in scaling operations.
-	Scaler TranscodeSourcePipelineScaler `json:"scaler,omitempty"`
+	Scaler *TranscodeSourcePipelineScaler `json:"scaler,omitempty"`
 }
 
 // SegmentedRendering holds segmented rendering parameters
