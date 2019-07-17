@@ -110,11 +110,11 @@ type Preset struct {
 }
 
 type PresetPayload struct {
-	Targets []PresetTarget `json:"targets"`
-	Options *TaskOptions   `json:"options,omitempty"`
+	Targets []PresetTarget        `json:"targets"`
+	Options *TranscodeTaskOptions `json:"options,omitempty"`
 }
 
-type TaskOptions struct {
+type TranscodeTaskOptions struct {
 	Pipeline *PipelineOptions `json:"pipeline,omitempty"`
 }
 
