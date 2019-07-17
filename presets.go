@@ -125,20 +125,37 @@ type PresetTarget struct {
 }
 
 type VideoTarget struct {
-	Width           *int   `json:"width,omitempty"`
-	Height          *int   `json:"height,omitempty"`
-	BitrateMode     string `json:"bitrate_mode,omitempty"`
-	BitrateKb       int    `json:"bitrate_kb,omitempty"`
-	MaxBitrateKb    int    `json:"max_bitrate_kb,omitempty"`
-	VbvBufferSizeKb int    `json:"vbv_buffer_size_kb,omitempty"`
-	FrameRate       int    `json:"frame_rate,omitempty"`
-	Codec           string `json:"codec,omitempty"`
-	Profile         string `json:"profile,omitempty"`
-	Level           string `json:"level,omitempty"`
-	MinGOPFrames    int    `json:"min_gop_frames,omitempty"`
-	MaxGOPFrames    int    `json:"max_gop_frames,omitempty"`
-	UseClosedGOP    bool   `json:"use_closed_gop,omitempty"`
-	InterlaceMode   string `json:"interlace_mode,omitempty"`
+	Width           *int           `json:"width,omitempty"`
+	Height          *int           `json:"height,omitempty"`
+	BitrateMode     string         `json:"bitrate_mode,omitempty"`
+	BitrateKb       int            `json:"bitrate_kb,omitempty"`
+	MaxBitrateKb    int            `json:"max_bitrate_kb,omitempty"`
+	VbvBufferSizeKb int            `json:"vbv_buffer_size_kb,omitempty"`
+	FrameRate       int            `json:"frame_rate,omitempty"`
+	Codec           string         `json:"codec,omitempty"`
+	Profile         string         `json:"profile,omitempty"`
+	Level           string         `json:"level,omitempty"`
+	MinGOPFrames    int            `json:"min_gop_frames,omitempty"`
+	MaxGOPFrames    int            `json:"max_gop_frames,omitempty"`
+	UseClosedGOP    bool           `json:"use_closed_gop,omitempty"`
+	InterlaceMode   string         `json:"interlace_mode,omitempty"`
+	HDR10           *HDR10Settings `json:"hdr10,omitempty"`
+}
+
+// HDR10Settings holds configuration information for the HDR color data.
+type HDR10Settings struct {
+	// Source holds the location of the HDR10 metadata.
+	// can be one of: config, source_metadata, source_document, media, metadata_file, or none
+	Source string `json:"source"`
+
+	// MasterDisplay is an encoded string containing mastering display brightness.
+	MasterDisplay string `json:"master_display"`
+
+	// MaxCLL is the maximum Content Light Level (CLL) for the file.
+	MaxCLL int `json:"max_cll"`
+
+	// MaxFALL is the maximum Frame Average Light Level (FALL) for the file
+	MaxFALL int `json:"max_fall"`
 }
 
 type AudioTarget struct {
