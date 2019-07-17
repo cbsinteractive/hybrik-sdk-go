@@ -7,7 +7,8 @@ import (
 )
 
 const (
-	failed = "false"
+	failed                = "false"
+	EncoderVersion4_10bit = "hybrik_4.0_10bit"
 )
 
 type presetResponse struct {
@@ -110,6 +111,15 @@ type Preset struct {
 
 type PresetPayload struct {
 	Targets []PresetTarget `json:"targets"`
+	Options *TaskOptions   `json:"options,omitempty"`
+}
+
+type TaskOptions struct {
+	Pipeline *PipelineOptions `json:"pipeline,omitempty"`
+}
+
+type PipelineOptions struct {
+	EncoderVersion string `json:"encoder_version,omitempty"`
 }
 
 type PresetTarget struct {
