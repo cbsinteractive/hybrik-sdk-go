@@ -139,6 +139,11 @@ type VideoTarget struct {
 	MaxGOPFrames    int            `json:"max_gop_frames,omitempty"`
 	UseClosedGOP    bool           `json:"use_closed_gop,omitempty"`
 	InterlaceMode   string         `json:"interlace_mode,omitempty"`
+	ChromaFormat    string         `json:"chroma_format,omitempty"`
+	ColorPrimaries  string         `json:"color_primaries,omitempty"`
+	ColorMatrix     string         `json:"color_matrix,omitempty"`
+	ColorTRC        string         `json:"color_trc,omitempty"`
+	X265Options     string         `json:"x265_options,omitempty"`
 	HDR10           *HDR10Settings `json:"hdr10,omitempty"`
 }
 
