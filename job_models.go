@@ -201,7 +201,8 @@ type TranscodeTarget struct {
 
 // TranscodeContainer .
 type TranscodeContainer struct {
-	Kind string `json:"kind"`
+	Kind              string `json:"kind"`
+	HEVCCodecIDPrefix string `json:"hevc_codec_id_prefix,omitempty"`
 }
 
 // Connection .

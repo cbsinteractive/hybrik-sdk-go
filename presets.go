@@ -123,16 +123,13 @@ type PipelineOptions struct {
 }
 
 type PresetTarget struct {
-	FilePattern string `json:"file_pattern"`
-	Container   struct {
-		Kind              string `json:"kind"`
-		HEVCCodecIDPrefix string `json:"hevc_codec_id_prefix,omitempty"`
-	} `json:"container"`
-	NumPasses     int           `json:"nr_of_passes,omitempty"`
-	Video         VideoTarget   `json:"video,omitempty"`
-	Audio         []AudioTarget `json:"audio,omitempty"`
-	ExistingFiles string        `json:"existing_files,omitempty"`
-	UID           string        `json:"uid,omitempty"`
+	FilePattern   string             `json:"file_pattern"`
+	Container     TranscodeContainer `json:"container"`
+	NumPasses     int                `json:"nr_of_passes,omitempty"`
+	Video         VideoTarget        `json:"video,omitempty"`
+	Audio         []AudioTarget      `json:"audio,omitempty"`
+	ExistingFiles string             `json:"existing_files,omitempty"`
+	UID           string             `json:"uid,omitempty"`
 }
 
 type VideoTarget struct {
