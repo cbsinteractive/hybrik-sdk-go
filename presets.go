@@ -125,7 +125,8 @@ type PipelineOptions struct {
 type PresetTarget struct {
 	FilePattern string `json:"file_pattern"`
 	Container   struct {
-		Kind string `json:"kind"`
+		Kind              string `json:"kind"`
+		HEVCCodecIDPrefix string `json:"hevc_codec_id_prefix,omitempty"`
 	} `json:"container"`
 	NumPasses     int           `json:"nr_of_passes,omitempty"`
 	Video         VideoTarget   `json:"video,omitempty"`
