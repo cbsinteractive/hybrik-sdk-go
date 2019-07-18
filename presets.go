@@ -153,6 +153,7 @@ type VideoTarget struct {
 	ColorTRC        string         `json:"color_trc,omitempty"`
 	X265Options     string         `json:"x265_options,omitempty"`
 	HDR10           *HDR10Settings `json:"hdr10,omitempty"`
+	FFMPEGArgs      string         `json:"ffmpeg_args,omitempty"`
 }
 
 // HDR10Settings holds configuration information for the HDR color data.
