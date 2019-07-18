@@ -63,7 +63,7 @@ type TranscodePayload struct {
 // TranscodeSourcePipeline allows the modification of the source prior to beginning the transcode
 type TranscodeSourcePipeline struct {
 	// Segmented rendering parameters.
-	SegmentedRendering SegmentedRendering `json:"segmented_rendering,omitempty"`
+	SegmentedRendering *SegmentedRendering `json:"segmented_rendering,omitempty"`
 
 	// The FFmpeg source string to be applied to the source file. Use {source_url} within this string
 	// to insert the source file name(s).
