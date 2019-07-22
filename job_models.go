@@ -5,7 +5,7 @@ const (
 	DoViMezzQCVersionDefault   = "2.6.2"
 	DoViMP4QCVersionDefault    = "1.1.4"
 	DoViMP4MuxerVersionDefault = "1.2.8"
-	DoViSDKVersionDefault      = "4.2.1_qa"
+	DoViSDKVersionDefault      = "4.2.1_ga"
 )
 
 // CreateJob .
