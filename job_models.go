@@ -60,6 +60,118 @@ type TranscodePayload struct {
 	Options        *TranscodeTaskOptions   `json:"options,omitempty"`
 }
 
+type TaskTags struct {
+	Tags []string `json:"tags,omitempty"`
+}
+
+type DolbyVisionTaskPayload struct {
+	Module        string             `json:"module"`
+	Profile       string             `json:"profile"`
+	MezzanineQC   DoViMezzanineQC    `json:"mezzanine_qc,omitempty"`
+	NBCPreproc    DoViNBCPreproc     `json:"nbc_preproc,omitempty"`
+	Transcodes    []TranscodePayload `json:"transcodes"`
+	PostTranscode DoViPostTranscode  `json:"post_transcode,omitempty"`
+}
+
+// DoViMezzanineQC holds mezz qc config options
+type DoViMezzanineQC struct {
+	Enabled     bool              `json:"enabled"`
+	Location    TranscodeLocation `json:"location"`
+	Task        TaskTags          `json:"task,omitempty"`
+	FilePattern string            `json:"file_pattern"`
+	ToolVersion string            `json:"tool_version"`
+}
+
+// DoViNBCPreproc holds the DolbyVision pre-processor config
+type DoViNBCPreproc struct {
+	Task           TaskTags                 `json:"task,omitempty"`
+	Location       TranscodeLocation        `json:"location"`
+	SDKVersion     string                   `json:"dovi_sdk_version"`
+	NumTasks       string                   `json:"num_tasks"`
+	IntervalLength int                      `json:"interval_length"`
+	CLIOptions     DoViNBCPreprocCLIOptions `json:"cli_options,omitempty"`
+}
+
+// DoViNBCPreprocCLIOptions contains command line options for the nbc_preproc task for DolbyVision
+type DoViNBCPreprocCLIOptions struct {
+	InputEDRSize   string `json:"inputEDRSize,omitempty"`
+	InputEDRAspect string `json:"inputEDRAspect,omitempty"`
+	InputEDRPad    string `json:"inputEDRPad,omitempty"`
+	InputEDRCrop   string `json:"inputEDRCrop,omitempty"`
+}
+
+// DoViPostTranscode holds configuration for the DolbyVision post-transcode settings
+type DoViPostTranscode struct {
+	Task             TaskTags             `json:"task,omitempty"`
+	VESMux           DoViVESMux           `json:"ves_mux,omitempty"`
+	MetadataPostProc DoViMetadataPostProc `json:"metadata_postproc,omitempty"`
+	MP4Mux           DoViMP4Mux           `json:"mp4_mux,omitempty"`
+}
+
+// DoViVESMux configures settings for the VES muxing post-transcode
+type DoViVESMux struct {
+	Enabled     bool              `json:"enabled"`
+	Location    TranscodeLocation `json:"location"`
+	FilePattern string            `json:"file_pattern"`
+	SDKVersion  string            `json:"dovi_sdk_version"`
+}
+
+// DoViMetadataPostProc configures settings for the metadata post processing after a DolbyVision transcode
+type DoViMetadataPostProc struct {
+	Enabled     bool              `json:"enabled"`
+	Location    TranscodeLocation `json:"location"`
+	FilePattern string            `json:"file_pattern"`
+	SDKVersion  string            `json:"dovi_sdk_version"`
+	QCSettings  DoViQCSettings    `json:"qc,omitempty"`
+}
+
+// DoViQCSettings holds settings for the post transcode DoVi metadata qc job
+type DoViQCSettings struct {
+	Enabled     bool              `json:"enabled"`
+	ToolVersion string            `json:"tool_version"`
+	Location    TranscodeLocation `json:"location"`
+	FilePattern string            `json:"file_pattern"`
+}
+
+// DoViMP4Mux holds settings for the DolbyVision mp4 muxer
+type DoViMP4Mux struct {
+	Enabled            bool                        `json:"enabled"`
+	Location           TranscodeLocation           `json:"location"`
+	FilePattern        string                      `json:"file_pattern"`
+	ToolVersion        string                      `json:"tool_version"`
+	CopySourceStartPTS bool                        `json:"copy_source_start_pts"`
+	QCSettings         DoViQCSettings              `json:"qc,omitempty"`
+	ElementaryStreams  DoViMP4MuxElementaryStreams `json:"elementary_streams,omitempty"`
+}
+
+// DoViMP4MuxElementaryStreams holds settings for streams during a mux operation
+type DoViMP4MuxElementaryStreams struct {
+	AssetURL        AssetURL              `json:"asset_url,omitempty"`
+	ExtractAudio    bool                  `json:"extract_audio"`
+	ExtractLocation TranscodeLocation     `json:"extract_location,omitempty"`
+	ExtractTask     DoViMP4MuxExtractTask `json:"extract_task,omitempty"`
+}
+
+// DoViMP4MuxExtractTask hold configurations for extracting data from elementary streams
+type DoViMP4MuxExtractTask struct {
+	RetryMethod string   `json:"retry_method,omitempty"`
+	Retry       Retry    `json:"retry,omitempty"`
+	Name        string   `json:"name,omitempty"`
+	Tags        []string `json:"tags,omitempty"`
+}
+
+// Retry .
+type Retry struct {
+	Count    int `json:"count,omitempty"`
+	DelaySec int `json:"delay_sec,omitempty"`
+}
+
+// AssetURL .
+type AssetURL struct {
+	StorageProvider string `json:"storage_provider,omitempty"`
+	URL             string `json:"url,omitempty"`
+}
+
 // TranscodeSourcePipeline allows the modification of the source prior to beginning the transcode
 type TranscodeSourcePipeline struct {
 	// Segmented rendering parameters.
