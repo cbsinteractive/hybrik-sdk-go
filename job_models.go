@@ -1,11 +1,11 @@
 package hybrik
 
 const (
-	versionDoViVesQCVersionDefault  = "0.9.0.9"
-	versionDoViMezzQCVersionDefault = "2.6.2"
-	versionDoViMP4QCDefault         = "1.1.4"
-	versionDoViMP4MuxerDefault      = "1.2.8"
-	versionDoViSDKVersionDefault    = "4.2.1_qa"
+	DoViVesQCVersionDefault    = "0.9.0.9"
+	DoViMezzQCVersionDefault   = "2.6.2"
+	DoViMP4QCVersionDefault    = "1.1.4"
+	DoViMP4MuxerVersionDefault = "1.2.8"
+	DoViSDKVersionDefault      = "4.2.1_qa"
 )
 
 // CreateJob .
