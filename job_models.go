@@ -294,7 +294,8 @@ type TranscodeLocationTarget struct {
 
 // TranscodeTargetContainer .
 type TranscodeTargetContainer struct {
-	SegmentDuration uint `json:"segment_duration,omitempty"`
+	Kind            string `json:"kind"`
+	SegmentDuration uint   `json:"segment_duration,omitempty"`
 }
 
 // AssetPayload .
