@@ -143,17 +143,17 @@ type DoViQCSettings struct {
 
 // DoViMP4Mux holds settings for the DolbyVision mp4 muxer
 type DoViMP4Mux struct {
-	Enabled            bool                        `json:"enabled"`
-	Location           TranscodeLocation           `json:"location"`
-	FilePattern        string                      `json:"file_pattern"`
-	ToolVersion        string                      `json:"tool_version"`
-	CopySourceStartPTS bool                        `json:"copy_source_start_pts"`
-	QCSettings         DoViQCSettings              `json:"qc,omitempty"`
-	ElementaryStreams  DoViMP4MuxElementaryStreams `json:"elementary_streams,omitempty"`
+	Enabled            bool                         `json:"enabled"`
+	Location           TranscodeLocation            `json:"location"`
+	FilePattern        string                       `json:"file_pattern"`
+	ToolVersion        string                       `json:"tool_version"`
+	CopySourceStartPTS bool                         `json:"copy_source_start_pts"`
+	QCSettings         DoViQCSettings               `json:"qc,omitempty"`
+	ElementaryStreams  []DoViMP4MuxElementaryStream `json:"elementary_streams,omitempty"`
 }
 
-// DoViMP4MuxElementaryStreams holds settings for streams during a mux operation
-type DoViMP4MuxElementaryStreams struct {
+// DoViMP4MuxElementaryStream holds settings for streams during a mux operation
+type DoViMP4MuxElementaryStream struct {
 	AssetURL        AssetURL              `json:"asset_url,omitempty"`
 	ExtractAudio    bool                  `json:"extract_audio"`
 	ExtractLocation TranscodeLocation     `json:"extract_location,omitempty"`
