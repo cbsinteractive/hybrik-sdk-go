@@ -73,12 +73,12 @@ type TaskTags struct {
 }
 
 type DolbyVisionTaskPayload struct {
-	Module        string             `json:"module"`
-	Profile       string             `json:"profile"`
-	MezzanineQC   DoViMezzanineQC    `json:"mezzanine_qc,omitempty"`
-	NBCPreproc    DoViNBCPreproc     `json:"nbc_preproc,omitempty"`
-	Transcodes    []TranscodePayload `json:"transcodes"`
-	PostTranscode DoViPostTranscode  `json:"post_transcode,omitempty"`
+	Module        string            `json:"module"`
+	Profile       string            `json:"profile"`
+	MezzanineQC   DoViMezzanineQC   `json:"mezzanine_qc,omitempty"`
+	NBCPreproc    DoViNBCPreproc    `json:"nbc_preproc,omitempty"`
+	Transcodes    []Element         `json:"transcodes"`
+	PostTranscode DoViPostTranscode `json:"post_transcode,omitempty"`
 }
 
 // DoViMezzanineQC holds mezz qc config options
