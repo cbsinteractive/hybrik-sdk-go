@@ -7,8 +7,9 @@ import (
 )
 
 const (
-	failed                = "false"
-	EncoderVersion4_10bit = "hybrik_4.0_10bit"
+	failed                 = "false"
+	EncoderVersion4_10bit  = "hybrik_4.0_10bit"
+	FFMPEGVersion3_4_10bit = "hybrik_3.4_10bit"
 )
 
 type presetResponse struct {
@@ -115,11 +116,13 @@ type PresetPayload struct {
 }
 
 type TranscodeTaskOptions struct {
-	Pipeline *PipelineOptions `json:"pipeline,omitempty"`
+	Pipeline       *PipelineOptions `json:"pipeline,omitempty"`
+	SourceReadMode string           `json:"source_read_mode,omitempty"`
 }
 
 type PipelineOptions struct {
 	EncoderVersion string `json:"encoder_version,omitempty"`
+	FFMPEGVersion  string `json:"ffmpeg_version,omitempty"`
 }
 
 type PresetTarget struct {
