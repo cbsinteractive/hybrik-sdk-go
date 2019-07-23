@@ -294,7 +294,7 @@ type TranscodeLocationTarget struct {
 
 // TranscodeTargetContainer .
 type TranscodeTargetContainer struct {
-	Kind            string `json:"kind"`
+	Kind            string `json:"kind,omitempty"`
 	SegmentDuration uint   `json:"segment_duration,omitempty"`
 }
 
