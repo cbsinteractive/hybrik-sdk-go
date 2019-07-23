@@ -57,8 +57,8 @@ type ManifestCreatorPayload struct {
 
 // LocationTargetPayload .
 type LocationTargetPayload struct {
-	Location TranscodeLocation         `json:"location"`
-	Targets  []TranscodeLocationTarget `json:"targets"`
+	Location TranscodeLocation `json:"location"`
+	Targets  []interface{}     `json:"targets"`
 }
 
 // TranscodePayload holds configurations for a transcode task
