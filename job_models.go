@@ -302,7 +302,19 @@ type TranscodeTargetContainer struct {
 type AssetPayload struct {
 	StorageProvider string `json:"storage_provider,omitempty"`
 
-	URL string `json:"url,omitempty"`
+	URL      string          `json:"url,omitempty"`
+	Contents []AssetContents `json:"contents,omitempty"`
+}
+
+// AssetContents .
+type AssetContents struct {
+	Kind    string               `json:"kind"`
+	Payload AssetContentsPayload `json:"payload"`
+}
+
+// AssetContentsPayload .
+type AssetContentsPayload struct {
+	Standard string `json:"standard"`
 }
 
 // TranscodeLocation .
