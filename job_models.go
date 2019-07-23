@@ -74,7 +74,7 @@ type TaskTags struct {
 
 type DolbyVisionTaskPayload struct {
 	Module        string            `json:"module"`
-	Profile       string            `json:"profile"`
+	Profile       int               `json:"profile"`
 	MezzanineQC   DoViMezzanineQC   `json:"mezzanine_qc,omitempty"`
 	NBCPreproc    DoViNBCPreproc    `json:"nbc_preproc,omitempty"`
 	Transcodes    []Element         `json:"transcodes"`
