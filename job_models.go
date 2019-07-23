@@ -43,8 +43,8 @@ type ElementTaskOptions struct {
 
 // ElementPayload .
 type ElementPayload struct {
-	Kind    string       `json:"kind,omitempty"`
-	Payload AssetPayload `json:"payload"`
+	Kind    string      `json:"kind,omitempty"`
+	Payload interface{} `json:"payload"`
 }
 
 // ManifestCreatorPayload .
