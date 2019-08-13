@@ -38,7 +38,8 @@ type Element struct {
 
 // ElementTaskOptions .
 type ElementTaskOptions struct {
-	Name string `json:"name"`
+	Name string   `json:"name"`
+	Tags []string `json:"tags,omitempty"`
 }
 
 // ElementPayload .
