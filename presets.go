@@ -139,6 +139,7 @@ type VideoTarget struct {
 	Width           *int           `json:"width,omitempty"`
 	Height          *int           `json:"height,omitempty"`
 	BitrateMode     string         `json:"bitrate_mode,omitempty"`
+	MinBitrateKb    int            `json:"min_bitrate_kb,omitempty"`
 	BitrateKb       int            `json:"bitrate_kb,omitempty"`
 	MaxBitrateKb    int            `json:"max_bitrate_kb,omitempty"`
 	VbvBufferSizeKb int            `json:"vbv_buffer_size_kb,omitempty"`
