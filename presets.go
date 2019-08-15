@@ -125,6 +125,7 @@ type PipelineOptions struct {
 	FFMPEGVersion  string `json:"ffmpeg_version,omitempty"`
 }
 
+// PresetTarget holds configuration options for presets
 type PresetTarget struct {
 	FilePattern   string             `json:"file_pattern"`
 	Container     TranscodeContainer `json:"container"`
@@ -135,6 +136,7 @@ type PresetTarget struct {
 	UID           string             `json:"uid,omitempty"`
 }
 
+// VideoTarget holds configuration options for video outputs
 type VideoTarget struct {
 	Width           *int           `json:"width,omitempty"`
 	Height          *int           `json:"height,omitempty"`
@@ -176,6 +178,7 @@ type HDR10Settings struct {
 	MaxFALL int `json:"max_fall"`
 }
 
+// AudioTarget holds configuration options for audio outputs
 type AudioTarget struct {
 	Codec      string `json:"codec,omitempty"`
 	Channels   int    `json:"channels,omitempty"`
