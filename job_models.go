@@ -219,11 +219,11 @@ type DoViQCSettings struct {
 // DoViMP4Mux holds settings for the DolbyVision mp4 muxer
 type DoViMP4Mux struct {
 	Enabled            bool                         `json:"enabled"`
-	Location           TranscodeLocation            `json:"location,omitempty"`
+	Location           *TranscodeLocation           `json:"location,omitempty"`
 	FilePattern        string                       `json:"file_pattern"`
 	ToolVersion        string                       `json:"tool_version,omitempty"`
 	CopySourceStartPTS bool                         `json:"copy_source_start_pts,omitempty"`
-	QCSettings         DoViQCSettings               `json:"qc,omitempty"`
+	QCSettings         *DoViQCSettings              `json:"qc,omitempty"`
 	ElementaryStreams  []DoViMP4MuxElementaryStream `json:"elementary_streams,omitempty"`
 }
 
