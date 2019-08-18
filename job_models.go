@@ -121,6 +121,8 @@ type PackagePayload struct {
 	ForceOriginalMedia bool                  `json:"force_original_media"`
 	MediaURLPrefix     string                `json:"media_url_prefix,omitempty"`
 	MediaFilePattern   string                `json:"media_file_pattern,omitempty"`
+	SegmentationMode   string                `json:"segmentation_mode,omitempty"`
+	SegmentDurationSec int                   `json:"segment_duration_sec,omitempty"`
 	InitFilePattern    string                `json:"init_file_pattern,omitempty"`
 	Title              string                `json:"title,omitempty"`
 	Author             string                `json:"author,omitempty"`
