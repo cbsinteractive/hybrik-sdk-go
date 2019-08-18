@@ -185,10 +185,10 @@ type DoViNBCPreprocCLIOptions struct {
 
 // DoViPostTranscode holds configuration for the DolbyVision post-transcode settings
 type DoViPostTranscode struct {
-	Task             TaskTags             `json:"task,omitempty"`
-	VESMux           DoViVESMux           `json:"ves_mux,omitempty"`
-	MetadataPostProc DoViMetadataPostProc `json:"metadata_postproc,omitempty"`
-	MP4Mux           DoViMP4Mux           `json:"mp4_mux,omitempty"`
+	Task             *TaskTags             `json:"task,omitempty"`
+	VESMux           *DoViVESMux           `json:"ves_mux,omitempty"`
+	MetadataPostProc *DoViMetadataPostProc `json:"metadata_postproc,omitempty"`
+	MP4Mux           DoViMP4Mux            `json:"mp4_mux,omitempty"`
 }
 
 // DoViVESMux configures settings for the VES muxing post-transcode
