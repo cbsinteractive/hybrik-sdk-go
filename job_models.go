@@ -408,7 +408,7 @@ type Attribute struct {
 //TranscodeTarget .
 type TranscodeTarget struct {
 	FilePattern   string                   `json:"file_pattern"`
-	ExistingFiles string                   `json:"existing_files"`
+	ExistingFiles string                   `json:"existing_files,omitempty"`
 	Container     TranscodeContainer       `json:"container"`
 	Video         map[string]interface{}   `json:"video,omitempty"`
 	Audio         []map[string]interface{} `json:"audio,omitempty"`
