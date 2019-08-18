@@ -375,10 +375,10 @@ type TranscodeTargetContainer struct {
 
 // AssetPayload .
 type AssetPayload struct {
-	StorageProvider string `json:"storage_provider,omitempty"`
-
-	URL      string          `json:"url,omitempty"`
-	Contents []AssetContents `json:"contents,omitempty"`
+	StorageProvider string                 `json:"storage_provider,omitempty"`
+	Options         map[string]interface{} `json:"options,omitempty"`
+	URL             string                 `json:"url,omitempty"`
+	Contents        []AssetContents        `json:"contents,omitempty"`
 }
 
 // AssetContents .
