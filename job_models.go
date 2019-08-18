@@ -193,27 +193,27 @@ type DoViPostTranscode struct {
 
 // DoViVESMux configures settings for the VES muxing post-transcode
 type DoViVESMux struct {
-	Enabled     bool              `json:"enabled"`
-	Location    TranscodeLocation `json:"location"`
-	FilePattern string            `json:"file_pattern"`
-	SDKVersion  string            `json:"dovi_sdk_version"`
+	Enabled     bool              `json:"enabled,omitempty"`
+	Location    TranscodeLocation `json:"location,omitempty"`
+	FilePattern string            `json:"file_pattern,omitempty"`
+	SDKVersion  string            `json:"dovi_sdk_version,omitempty"`
 }
 
 // DoViMetadataPostProc configures settings for the metadata post processing after a DolbyVision transcode
 type DoViMetadataPostProc struct {
-	Enabled     bool              `json:"enabled"`
-	Location    TranscodeLocation `json:"location"`
-	FilePattern string            `json:"file_pattern"`
-	SDKVersion  string            `json:"dovi_sdk_version"`
-	QCSettings  DoViQCSettings    `json:"qc,omitempty"`
+	Enabled     bool              `json:"enabled,omitempty"`
+	Location    TranscodeLocation `json:"location,omitempty"`
+	FilePattern string            `json:"file_pattern,omitempty"`
+	SDKVersion  string            `json:"dovi_sdk_version,omitempty"`
+	QCSettings  DoViQCSettings    `json:"qc,omitempty,omitempty"`
 }
 
 // DoViQCSettings holds settings for the post transcode DoVi metadata qc job
 type DoViQCSettings struct {
-	Enabled     bool              `json:"enabled"`
-	ToolVersion string            `json:"tool_version"`
-	Location    TranscodeLocation `json:"location"`
-	FilePattern string            `json:"file_pattern"`
+	Enabled     bool              `json:"enabled,omitempty"`
+	ToolVersion string            `json:"tool_version,omitempty"`
+	Location    TranscodeLocation `json:"location,omitempty"`
+	FilePattern string            `json:"file_pattern,omitempty"`
 }
 
 // DoViMP4Mux holds settings for the DolbyVision mp4 muxer
@@ -223,7 +223,7 @@ type DoViMP4Mux struct {
 	FilePattern        string                       `json:"file_pattern"`
 	ToolVersion        string                       `json:"tool_version,omitempty"`
 	CopySourceStartPTS bool                         `json:"copy_source_start_pts,omitempty"`
-	QCSettings         DoViQCSettings               `json:"qc,omitempty,omitempty"`
+	QCSettings         DoViQCSettings               `json:"qc,omitempty"`
 	ElementaryStreams  []DoViMP4MuxElementaryStream `json:"elementary_streams,omitempty"`
 }
 
@@ -410,8 +410,8 @@ type TranscodeTarget struct {
 	FilePattern   string                   `json:"file_pattern"`
 	ExistingFiles string                   `json:"existing_files"`
 	Container     TranscodeContainer       `json:"container"`
-	Video         map[string]interface{}   `json:"video"`
-	Audio         []map[string]interface{} `json:"audio"`
+	Video         map[string]interface{}   `json:"video,omitempty"`
+	Audio         []map[string]interface{} `json:"audio,omitempty"`
 }
 
 // TranscodeContainer .
