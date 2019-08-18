@@ -229,10 +229,10 @@ type DoViMP4Mux struct {
 
 // DoViMP4MuxElementaryStream holds settings for streams during a mux operation
 type DoViMP4MuxElementaryStream struct {
-	AssetURL        AssetURL              `json:"asset_url,omitempty"`
-	ExtractAudio    bool                  `json:"extract_audio"`
-	ExtractLocation TranscodeLocation     `json:"extract_location,omitempty"`
-	ExtractTask     DoViMP4MuxExtractTask `json:"extract_task,omitempty"`
+	AssetURL        AssetURL               `json:"asset_url,omitempty"`
+	ExtractAudio    bool                   `json:"extract_audio,omitempty"`
+	ExtractLocation *TranscodeLocation     `json:"extract_location,omitempty"`
+	ExtractTask     *DoViMP4MuxExtractTask `json:"extract_task,omitempty"`
 }
 
 // DoViMP4MuxExtractTask hold configurations for extracting data from elementary streams
