@@ -114,48 +114,48 @@ type DolbyVisionV2Preprocessing struct {
 
 // PackagePayload hold options for setting up packaging
 type PackagePayload struct {
-	Location           TranscodeLocation     `json:"location"`
-	FilePattern        string                `json:"file_pattern"`
-	Kind               string                `json:"kind"`
-	UID                string                `json:"uid"`
-	ForceOriginalMedia bool                  `json:"force_original_media"`
-	MediaURLPrefix     string                `json:"media_url_prefix,omitempty"`
-	MediaFilePattern   string                `json:"media_file_pattern,omitempty"`
-	SegmentationMode   string                `json:"segmentation_mode,omitempty"`
-	SegmentDurationSec int                   `json:"segment_duration_sec,omitempty"`
-	InitFilePattern    string                `json:"init_file_pattern,omitempty"`
-	Title              string                `json:"title,omitempty"`
-	Author             string                `json:"author,omitempty"`
-	Copyright          string                `json:"copyright,omitempty"`
-	InfoURL            string                `json:"info_url,omitempty"`
-	DASH               DASHPackagingSettings `json:"dash,omitempty"`
-	HLS                HLSPackagingSettings  `json:"hls,omitempty"`
+	Location           TranscodeLocation      `json:"location"`
+	FilePattern        string                 `json:"file_pattern"`
+	Kind               string                 `json:"kind"`
+	UID                string                 `json:"uid,omitempty"`
+	ForceOriginalMedia bool                   `json:"force_original_media"`
+	MediaURLPrefix     string                 `json:"media_url_prefix,omitempty"`
+	MediaFilePattern   string                 `json:"media_file_pattern,omitempty"`
+	SegmentationMode   string                 `json:"segmentation_mode,omitempty"`
+	SegmentDurationSec int                    `json:"segment_duration_sec,omitempty"`
+	InitFilePattern    string                 `json:"init_file_pattern,omitempty"`
+	Title              string                 `json:"title,omitempty"`
+	Author             string                 `json:"author,omitempty"`
+	Copyright          string                 `json:"copyright,omitempty"`
+	InfoURL            string                 `json:"info_url,omitempty"`
+	DASH               *DASHPackagingSettings `json:"dash,omitempty"`
+	HLS                *HLSPackagingSettings  `json:"hls,omitempty"`
 }
 
 // DASHPackagingSettings configure the dash packager
 type DASHPackagingSettings struct {
-	Location           TranscodeLocation `json:"location,omitempty"`
-	FilePattern        string            `json:"file_pattern,omitempty"`
-	Compliance         string            `json:"compliance,omitempty"`
-	SegmentationMode   string            `json:"segmentation_mode"`
-	SegmentDurationSec string            `json:"segment_duration_sec"`
-	UseSegmentList     bool              `json:"use_segment_list,omitempty"`
+	Location           *TranscodeLocation `json:"location,omitempty"`
+	FilePattern        string             `json:"file_pattern,omitempty"`
+	Compliance         string             `json:"compliance,omitempty"`
+	SegmentationMode   string             `json:"segmentation_mode"`
+	SegmentDurationSec string             `json:"segment_duration_sec"`
+	UseSegmentList     bool               `json:"use_segment_list,omitempty"`
 }
 
 // HLSPackagingSettings configure the HLS packager
 type HLSPackagingSettings struct {
-	Location                 TranscodeLocation `json:"location,omitempty"`
-	FilePattern              string            `json:"file_pattern,omitempty"`
-	Version                  int               `json:"version,omitempty"`
-	IETFDraftVersion         string            `json:"ietf_draft_version,omitempty"`
-	PrimaryLayerUID          string            `json:"primary_layer_uid,omitempty"`
-	IncludeIFRAMEManifests   bool              `json:"include_iframe_manifests,omitempty"`
-	HEVCCodecIDPrefix        string            `json:"hevc_codec_id_prefix,omitempty"`
-	MediaPlaylistLocation    TranscodeLocation `json:"media_playlist_location,omitempty"`
-	MediaPlaylistURLPrefix   string            `json:"media_playlist_url_prefix,omitempty"`
-	MediaPlaylistFilePattern string            `json:"media_playlist_file_pattern,omitempty"`
-	ManifestLocation         TranscodeLocation `json:"manifest_location,omitempty"`
-	ManifestFilePattern      string            `json:"manifest_file_pattern,omitempty"`
+	Location                 *TranscodeLocation `json:"location,omitempty"`
+	FilePattern              string             `json:"file_pattern,omitempty"`
+	Version                  int                `json:"version,omitempty"`
+	IETFDraftVersion         string             `json:"ietf_draft_version,omitempty"`
+	PrimaryLayerUID          string             `json:"primary_layer_uid,omitempty"`
+	IncludeIFRAMEManifests   bool               `json:"include_iframe_manifests,omitempty"`
+	HEVCCodecIDPrefix        string             `json:"hevc_codec_id_prefix,omitempty"`
+	MediaPlaylistLocation    *TranscodeLocation `json:"media_playlist_location,omitempty"`
+	MediaPlaylistURLPrefix   string             `json:"media_playlist_url_prefix,omitempty"`
+	MediaPlaylistFilePattern string             `json:"media_playlist_file_pattern,omitempty"`
+	ManifestLocation         *TranscodeLocation `json:"manifest_location,omitempty"`
+	ManifestFilePattern      string             `json:"manifest_file_pattern,omitempty"`
 }
 
 // DoViMezzanineQC holds mezz qc config options
