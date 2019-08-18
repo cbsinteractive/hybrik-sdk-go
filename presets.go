@@ -158,6 +158,7 @@ type VideoTarget struct {
 	ColorMatrix     string         `json:"color_matrix,omitempty"`
 	ColorTRC        string         `json:"color_trc,omitempty"`
 	X265Options     string         `json:"x265_options,omitempty"`
+	VTag            string         `json:"vtag,omitempty"`
 	HDR10           *HDR10Settings `json:"hdr10,omitempty"`
 	FFMPEGArgs      string         `json:"ffmpeg_args,omitempty"`
 }
