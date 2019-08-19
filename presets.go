@@ -145,6 +145,7 @@ type VideoTarget struct {
 	BitrateKb       int            `json:"bitrate_kb,omitempty"`
 	MaxBitrateKb    int            `json:"max_bitrate_kb,omitempty"`
 	VbvBufferSizeKb int            `json:"vbv_buffer_size_kb,omitempty"`
+	Preset          string         `json:"preset,omitempty"`
 	FrameRate       int            `json:"frame_rate,omitempty"`
 	Codec           string         `json:"codec,omitempty"`
 	Profile         string         `json:"profile,omitempty"`
