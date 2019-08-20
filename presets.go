@@ -138,30 +138,32 @@ type PresetTarget struct {
 
 // VideoTarget holds configuration options for video outputs
 type VideoTarget struct {
-	Width           *int           `json:"width,omitempty"`
-	Height          *int           `json:"height,omitempty"`
-	BitrateMode     string         `json:"bitrate_mode,omitempty"`
-	MinBitrateKb    int            `json:"min_bitrate_kb,omitempty"`
-	BitrateKb       int            `json:"bitrate_kb,omitempty"`
-	MaxBitrateKb    int            `json:"max_bitrate_kb,omitempty"`
-	VbvBufferSizeKb int            `json:"vbv_buffer_size_kb,omitempty"`
-	Preset          string         `json:"preset,omitempty"`
-	FrameRate       int            `json:"frame_rate,omitempty"`
-	Codec           string         `json:"codec,omitempty"`
-	Profile         string         `json:"profile,omitempty"`
-	Level           string         `json:"level,omitempty"`
-	MinGOPFrames    int            `json:"min_gop_frames,omitempty"`
-	MaxGOPFrames    int            `json:"max_gop_frames,omitempty"`
-	UseClosedGOP    bool           `json:"use_closed_gop,omitempty"`
-	InterlaceMode   string         `json:"interlace_mode,omitempty"`
-	ChromaFormat    string         `json:"chroma_format,omitempty"`
-	ColorPrimaries  string         `json:"color_primaries,omitempty"`
-	ColorMatrix     string         `json:"color_matrix,omitempty"`
-	ColorTRC        string         `json:"color_trc,omitempty"`
-	X265Options     string         `json:"x265_options,omitempty"`
-	VTag            string         `json:"vtag,omitempty"`
-	HDR10           *HDR10Settings `json:"hdr10,omitempty"`
-	FFMPEGArgs      string         `json:"ffmpeg_args,omitempty"`
+	Width             *int           `json:"width,omitempty"`
+	Height            *int           `json:"height,omitempty"`
+	BitrateMode       string         `json:"bitrate_mode,omitempty"`
+	MinBitrateKb      int            `json:"min_bitrate_kb,omitempty"`
+	BitrateKb         int            `json:"bitrate_kb,omitempty"`
+	MaxBitrateKb      int            `json:"max_bitrate_kb,omitempty"`
+	VbvBufferSizeKb   int            `json:"vbv_buffer_size_kb,omitempty"`
+	Preset            string         `json:"preset,omitempty"`
+	FrameRate         int            `json:"frame_rate,omitempty"`
+	Codec             string         `json:"codec,omitempty"`
+	Profile           string         `json:"profile,omitempty"`
+	Level             string         `json:"level,omitempty"`
+	MinGOPFrames      int            `json:"min_gop_frames,omitempty"`
+	MaxGOPFrames      int            `json:"max_gop_frames,omitempty"`
+	ExactGOPFrames    int            `json:"exact_gop_frames,omitempty"`
+	UseClosedGOP      bool           `json:"use_closed_gop,omitempty"`
+	InterlaceMode     string         `json:"interlace_mode,omitempty"`
+	ChromaFormat      string         `json:"chroma_format,omitempty"`
+	ColorPrimaries    string         `json:"color_primaries,omitempty"`
+	ColorMatrix       string         `json:"color_matrix,omitempty"`
+	UseSceneDetection bool           `json:"use_scene_detection,omitempty"`
+	ColorTRC          string         `json:"color_trc,omitempty"`
+	X265Options       string         `json:"x265_options,omitempty"`
+	VTag              string         `json:"vtag,omitempty"`
+	HDR10             *HDR10Settings `json:"hdr10,omitempty"`
+	FFMPEGArgs        string         `json:"ffmpeg_args,omitempty"`
 }
 
 // HDR10Settings holds configuration information for the HDR color data.
