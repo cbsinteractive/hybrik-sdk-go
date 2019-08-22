@@ -226,6 +226,7 @@ type DoViMP4Mux struct {
 	ToolVersion        string                       `json:"tool_version,omitempty"`
 	CopySourceStartPTS bool                         `json:"copy_source_start_pts,omitempty"`
 	QCSettings         *DoViQCSettings              `json:"qc,omitempty"`
+	CLIOptions         map[string]string            `json:"cli_options,omitempty"`
 	ElementaryStreams  []DoViMP4MuxElementaryStream `json:"elementary_streams,omitempty"`
 }
 
