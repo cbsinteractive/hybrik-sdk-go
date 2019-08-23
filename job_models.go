@@ -226,6 +226,7 @@ type DoViMP4Mux struct {
 	ToolVersion        string                       `json:"tool_version,omitempty"`
 	CopySourceStartPTS bool                         `json:"copy_source_start_pts,omitempty"`
 	QCSettings         *DoViQCSettings              `json:"qc,omitempty"`
+	CLIOptions         map[string]string            `json:"cli_options,omitempty"`
 	ElementaryStreams  []DoViMP4MuxElementaryStream `json:"elementary_streams,omitempty"`
 }
 
@@ -417,11 +418,12 @@ type Attribute struct {
 
 //TranscodeTarget .
 type TranscodeTarget struct {
-	FilePattern   string                   `json:"file_pattern"`
-	ExistingFiles string                   `json:"existing_files,omitempty"`
-	Container     TranscodeContainer       `json:"container"`
-	Video         map[string]interface{}   `json:"video,omitempty"`
-	Audio         []map[string]interface{} `json:"audio,omitempty"`
+	FilePattern   string             `json:"file_pattern"`
+	ExistingFiles string             `json:"existing_files,omitempty"`
+	Container     TranscodeContainer `json:"container"`
+	NumPasses     int                `json:"nr_of_passes,omitempty"`
+	Video         VideoTarget        `json:"video,omitempty"`
+	Audio         []AudioTarget      `json:"audio,omitempty"`
 }
 
 // TranscodeContainer .
