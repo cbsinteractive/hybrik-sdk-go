@@ -253,8 +253,9 @@ type Retry struct {
 
 // AssetURL .
 type AssetURL struct {
-	StorageProvider string `json:"storage_provider,omitempty"`
-	URL             string `json:"url,omitempty"`
+	StorageProvider string         `json:"storage_provider,omitempty"`
+	URL             string         `json:"url,omitempty"`
+	Access          *StorageAccess `json:"access,omitempty"`
 }
 
 // TranscodeSourcePipeline allows the modification of the source prior to beginning the transcode
@@ -380,6 +381,7 @@ type AssetPayload struct {
 	StorageProvider string                 `json:"storage_provider,omitempty"`
 	Options         map[string]interface{} `json:"options,omitempty"`
 	URL             string                 `json:"url,omitempty"`
+	Access          *StorageAccess         `json:"access,omitempty"`
 	Contents        []AssetContents        `json:"contents,omitempty"`
 }
 
@@ -396,9 +398,15 @@ type AssetContentsPayload struct {
 
 // TranscodeLocation .
 type TranscodeLocation struct {
-	StorageProvider string      `json:"storage_provider,omitempty"`
-	Path            string      `json:"path,omitempty"`
-	Attributes      []Attribute `json:"attributes,omitempty"`
+	StorageProvider string         `json:"storage_provider,omitempty"`
+	Path            string         `json:"path,omitempty"`
+	Access          *StorageAccess `json:"access,omitempty"`
+	Attributes      []Attribute    `json:"attributes,omitempty"`
+}
+
+// StorageAccess .
+type StorageAccess struct {
+	CredentialsKey string `json:"credentials_key"`
 }
 
 // Attribute holds a single key/value pair
