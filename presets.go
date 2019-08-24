@@ -190,7 +190,7 @@ type AudioTarget struct {
 	SampleRate int                `json:"sample_rate,omitempty"`
 	SampleSize int                `json:"sample_size,omitempty"`
 	BitrateKb  int                `json:"bitrate_kb,omitempty"`
-	Source     *AudioTargetSource `json:"source",omitempty`
+	Source     *AudioTargetSource `json:"source,omitempty"`
 }
 
 // AudioTargetSource .
