@@ -150,6 +150,7 @@ type VideoTarget struct {
 	Codec             string         `json:"codec,omitempty"`
 	Profile           string         `json:"profile,omitempty"`
 	Level             string         `json:"level,omitempty"`
+	Tune              string         `json:"tune,omitempty"`
 	MinGOPFrames      int            `json:"min_gop_frames,omitempty"`
 	MaxGOPFrames      int            `json:"max_gop_frames,omitempty"`
 	ExactGOPFrames    int            `json:"exact_gop_frames,omitempty"`
