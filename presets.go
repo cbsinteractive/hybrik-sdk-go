@@ -185,12 +185,12 @@ type HDR10Settings struct {
 
 // AudioTarget holds configuration options for audio outputs
 type AudioTarget struct {
-	Codec      string             `json:"codec,omitempty"`
-	Channels   int                `json:"channels,omitempty"`
-	SampleRate int                `json:"sample_rate,omitempty"`
-	SampleSize int                `json:"sample_size,omitempty"`
-	BitrateKb  int                `json:"bitrate_kb,omitempty"`
-	Source     *AudioTargetSource `json:"source,omitempty"`
+	Codec      string              `json:"codec,omitempty"`
+	Channels   int                 `json:"channels,omitempty"`
+	SampleRate int                 `json:"sample_rate,omitempty"`
+	SampleSize int                 `json:"sample_size,omitempty"`
+	BitrateKb  int                 `json:"bitrate_kb,omitempty"`
+	Source     []AudioTargetSource `json:"source,omitempty"`
 }
 
 // AudioTargetSource .
