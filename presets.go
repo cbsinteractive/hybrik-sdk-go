@@ -195,5 +195,5 @@ type AudioTarget struct {
 
 // AudioTargetSource .
 type AudioTargetSource struct {
-	TrackNum int `json:"track,omitempty"`
+	TrackNum int `json:"track"`
 }
