@@ -422,7 +422,7 @@ type TranscodeTarget struct {
 	ExistingFiles string             `json:"existing_files,omitempty"`
 	Container     TranscodeContainer `json:"container"`
 	NumPasses     int                `json:"nr_of_passes,omitempty"`
-	Video         VideoTarget        `json:"video,omitempty"`
+	Video         *VideoTarget       `json:"video,omitempty"`
 	Audio         []AudioTarget      `json:"audio,omitempty"`
 }
 
