@@ -267,7 +267,7 @@ type MediaInfoResult struct {
 	CodecProfile     string               `json:"codec_profile,omitempty"`
 	BitrateMode      string               `json:"bitrate_mode,omitempty"`
 	AUDIO            MediaInfoAudioResult `json:"AUDIO,omitempty"`
-	FrameRate        int                  `json:"frame_rate,omitempty"`
+	FrameRate        float64              `json:"frame_rate,omitempty"`
 	Encoder          string               `json:"encoder,omitempty"`
 	EncoderSettings  string               `json:"encoder_settings,omitempty"`
 	VIDEO            MediaInfoVideoResult `json:"VIDEO,omitempty"`
