@@ -5,7 +5,7 @@ import "time"
 type JobResultResponse struct {
 	Errors []JobResultError `json:"errors"`
 	Job    JobResultSummary `json:"job"`
-	Tasks  []Tasks          `json:"tasks"`
+	Tasks  []TaskResult     `json:"tasks"`
 }
 
 type JobResultSummary struct {
@@ -53,17 +53,10 @@ type LocationResult struct {
 	StorageProvider string `json:"storage_provider"`
 }
 
-type AssetComponentsResult struct {
-	Kind         string                     `json:"kind"`
-	Name         string                     `json:"name"`
-	Options      TranscodeTaskOptionsResult `json:"options"`
-	ComponentUID string                     `json:"component_uid"`
-}
-
 type AssetVersionsResult struct {
-	Location        LocationResult          `json:"location"`
-	AssetComponents []AssetComponentsResult `json:"asset_components"`
-	VersionUID      string                  `json:"version_uid"`
+	Location        LocationResult         `json:"location"`
+	AssetComponents []AssetComponentResult `json:"asset_components"`
+	VersionUID      string                 `json:"version_uid"`
 }
 type AssetResultPayload struct {
 	AssetVersions []AssetVersionsResult `json:"asset_versions"`
@@ -184,7 +177,7 @@ type DoViResultPayload struct {
 	PostTranscode PostTranscodeResult      `json:"post_transcode"`
 }
 
-type Tasks struct {
+type TaskResult struct {
 	ID               int              `json:"id"`
 	Priority         int              `json:"priority"`
 	RetryNr          int              `json:"retry_nr"`
@@ -202,4 +195,85 @@ type Tasks struct {
 	Completed        time.Time        `json:"completed"`
 	Documents        []DocumentResult `json:"documents"`
 	FetcherID        int              `json:"fetcher_id,omitempty"`
+}
+
+type AssetComponentResult struct {
+	Kind         string                         `json:"kind"`
+	Name         string                         `json:"name"`
+	Descriptor   AssetComponentResultDescriptor `json:"descriptor"`
+	MediaAnalyze MediaAnalyzeResult             `json:"media_analyze"`
+	ComponentUID string                         `json:"component_uid"`
+}
+
+type AssetComponentResultDescriptor struct {
+	Size     int    `json:"size"`
+	Provider string `json:"provider"`
+	Checked  int64  `json:"checked"`
+}
+
+type MediaInfoAssetResult struct {
+	URL                 string `json:"url"`
+	Format              string `json:"format"`
+	FormatProfile       string `json:"format_profile"`
+	FormatCompatibility string `json:"format_compatibility"`
+	Creator             string `json:"creator"`
+	IsStreamable        bool   `json:"is_streamable"`
+	TotalSize           int    `json:"total_size"`
+	ContentType         string `json:"content_type"`
+	Hash                string `json:"hash"`
+	Modified            int64  `json:"modified"`
+	ProbeStyle          string `json:"probe_style"`
+	Requester           string `json:"requester"`
+	ScanVersion         string `json:"scan_version"`
+	ScanOrigin          string `json:"scan_origin"`
+}
+type MediaInfoAudioResult struct {
+	NrChannels   int      `json:"nr_channels"`
+	ChannelOrder string   `json:"channel_order"`
+	Designators  []string `json:"designators"`
+}
+
+type MediaInfoVideoResult struct {
+	BitResolution       int     `json:"bit_resolution"`
+	Format              string  `json:"format"`
+	BitsPerPixel        int     `json:"bits_per_pixel"`
+	EncodedBitsPerPixel float64 `json:"encoded_bits_per_pixel"`
+	ChromaSubsampling   string  `json:"chroma_subsampling"`
+	ColorSpace          string  `json:"color_space"`
+	FramerateMode       string  `json:"framerate_mode"`
+	InterlaceMode       string  `json:"interlace_mode"`
+	DisplayAr           float64 `json:"display_ar"`
+	PixelAr             int     `json:"pixel_ar"`
+	Height              int     `json:"height"`
+	Width               int     `json:"width"`
+	CleanApertureHeight int     `json:"clean_aperture_height"`
+	CleanApertureWidth  int     `json:"clean_aperture_width"`
+}
+
+type MediaInfoResult struct {
+	StreamType       string               `json:"stream_type"`
+	BitPerSec        int                  `json:"bit_per_sec"`
+	StreamSize       int                  `json:"stream_size,omitempty"`
+	DurationOtb      int64                `json:"duration_otb"`
+	FirstPtsOtb      int                  `json:"first_pts_otb"`
+	FirstDtsOtb      int                  `json:"first_dts_otb"`
+	ASSET            MediaInfoAssetResult `json:"ASSET,omitempty"`
+	FirstDts         float64              `json:"first_dts"`
+	FirstPts         float64              `json:"first_pts"`
+	Duration         float64              `json:"duration"`
+	ID               int                  `json:"id,omitempty"`
+	Index            int                  `json:"index,omitempty"`
+	SubIndex         int                  `json:"sub_index,omitempty"`
+	FrameDurationOtb int                  `json:"frame_duration_otb,omitempty"`
+	Codec            string               `json:"codec,omitempty"`
+	CodecProfile     string               `json:"codec_profile,omitempty"`
+	BitrateMode      string               `json:"bitrate_mode,omitempty"`
+	AUDIO            MediaInfoAudioResult `json:"AUDIO,omitempty"`
+	FrameRate        int                  `json:"frame_rate,omitempty"`
+	Encoder          string               `json:"encoder,omitempty"`
+	EncoderSettings  string               `json:"encoder_settings,omitempty"`
+	VIDEO            MediaInfoVideoResult `json:"VIDEO,omitempty"`
+}
+type MediaAnalyzeResult struct {
+	MediaInfo []MediaInfoResult `json:"media_info"`
 }
