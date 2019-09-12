@@ -29,6 +29,7 @@ type ClientInterface interface {
 	// Jobs API
 	QueueJob(string) (string, error)
 	GetJobInfo(string) (JobInfo, error)
+	GetJobResult(string) (JobResultResponse, error)
 	StopJob(string) error
 
 	// Presets API

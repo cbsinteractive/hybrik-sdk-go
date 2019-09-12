@@ -3,6 +3,7 @@ package hybrik
 import (
 	"encoding/json"
 	"fmt"
+	"net/http"
 	"net/url"
 	"strings"
 	"time"
@@ -104,4 +105,20 @@ func (c *Client) GetJobInfo(jobID string) (JobInfo, error) {
 	}
 
 	return ji, nil
+}
+
+// GetJobResult takes a jobID and returns the job result
+func (c *Client) GetJobResult(jobID string) (JobResultResponse, error) {
+	resp, err := c.client.CallAPI(http.MethodGet, fmt.Sprintf("/jobs/%s/result", jobID), nil, nil)
+	if err != nil {
+		return JobResultResponse{}, err
+	}
+
+	var jrr JobResultResponse
+	err = json.Unmarshal([]byte(resp), &jrr)
+	if err != nil {
+		return JobResultResponse{}, err
+	}
+
+	return jrr, nil
 }
