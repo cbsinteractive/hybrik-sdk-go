@@ -224,8 +224,6 @@ type MediaInfoAssetResult struct {
 	Modified            int64  `json:"modified"`
 	ProbeStyle          string `json:"probe_style"`
 	Requester           string `json:"requester"`
-	ScanVersion         string `json:"scan_version"`
-	ScanOrigin          string `json:"scan_origin"`
 }
 type MediaInfoAudioResult struct {
 	NrChannels   int      `json:"nr_channels"`
