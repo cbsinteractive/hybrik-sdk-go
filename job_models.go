@@ -407,7 +407,8 @@ type TranscodeLocation struct {
 
 // StorageAccess .
 type StorageAccess struct {
-	CredentialsKey string `json:"credentials_key"`
+	MaxCrossRegionMB int    `json:"max_cross_region_mb,omitempty"`
+	CredentialsKey   string `json:"credentials_key,omitempty"`
 }
 
 // Attribute holds a single key/value pair
