@@ -151,12 +151,12 @@ type VideoTarget struct {
 	Profile           string         `json:"profile,omitempty"`
 	Level             string         `json:"level,omitempty"`
 	Tune              string         `json:"tune,omitempty"`
-	MinGOPFrames      *int           `json:"min_gop_frames,omitempty"`
-	MaxGOPFrames      *int           `json:"max_gop_frames,omitempty"`
-	ExactGOPFrames    *int           `json:"exact_gop_frames,omitempty"`
-	MinKeyFrame       *int           `json:"min_keyframe_interval_sec,omitempty"`
-	MaxKeyFrame       *int           `json:"max_keyframe_interval_sec,omitempty"`
-	ExactKeyFrame     *int           `json:"exact_keyframe_interval_sec,omitempty"`
+	MinGOPFrames      int            `json:"min_gop_frames,omitempty"`
+	MaxGOPFrames      int            `json:"max_gop_frames,omitempty"`
+	ExactGOPFrames    int            `json:"exact_gop_frames,omitempty"`
+	MinKeyFrame       int            `json:"min_keyframe_interval_sec,omitempty"`
+	MaxKeyFrame       int            `json:"max_keyframe_interval_sec,omitempty"`
+	ExactKeyFrame     int            `json:"exact_keyframe_interval_sec,omitempty"`
 	UseClosedGOP      bool           `json:"use_closed_gop,omitempty"`
 	InterlaceMode     string         `json:"interlace_mode,omitempty"`
 	ChromaFormat      string         `json:"chroma_format,omitempty"`
